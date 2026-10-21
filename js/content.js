@@ -226,7 +226,7 @@ window.SCENES = [
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "天色染亮海洋", start: "00:00", end: "00:52" },
       { kind: "constant", label: "海浪潮汐變化", start: "00:52", end: "07:16" },
-      { kind: "drum", label: "海浪因光對比變強、反光閃爍", start: "00:44", end: "01:49" },
+      { kind: "drum", label: "重音模糊", start: "00:44", end: "01:49" },
       { kind: "vfx", label: "激起較大浪花", start: "01:30", end: "02:28" },
       { kind: "vfx", label: "激起較大浪花", start: "02:28", end: "03:47" },
       { kind: "vfx", label: "激起較大浪花", start: "03:47", end: "05:00" },
