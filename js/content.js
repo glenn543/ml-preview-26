@@ -119,6 +119,7 @@ window.SCENES = [
     period: "清晨 → 傍晚、黃昏",
     preview: "user/preview-edit-0919-web.mp4",
     drums: [{ start: "04:40", end: "05:44" }], // 實拍鼓點
+    cues: { label: "重拍", times: [27.77, 66.91, 92.86, 132.13, 171.25, 197.35, 262.56, 293.87, 356.49] },
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "天色漸亮染亮草原", start: "00:00", end: "01:11" },
       { kind: "constant", label: "草浪擺動", start: "01:11", end: "06:42" },
