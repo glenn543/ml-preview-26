@@ -119,11 +119,11 @@ window.SCENES = [
     period: "清晨 → 傍晚、黃昏",
     preview: "user/preview-edit-0919-web.mp4",
     drums: [{ start: "04:40", end: "05:44" }], // 實拍鼓點
-    cues: { label: "重拍", times: [27.77, 66.91, 92.86, 132.13, 171.25, 197.35, 262.56, 293.87, 356.49] },
+    cues: { label: "重拍", times: [27.77, 66.91, 92.86, 132.13, 171.25, 197.35, 262.56, 356.49] },
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "天色漸亮染亮草原", start: "00:00", end: "01:11" },
       { kind: "constant", label: "草浪擺動", start: "01:11", end: "06:42" },
-      { kind: "vfx", label: "風開始吹拂", start: "01:11", end: "03:58" },
+      { kind: "vfx", label: "擺動出現殘影", start: "01:11", end: "03:58" },
       { kind: "drum", label: "花瓣飛過鏡頭", start: "04:40", end: "05:44" },
       { kind: "vfx", label: "強風吹拂草原、花瓣飛掠過鏡頭", start: "05:57", end: "06:42" },
       { kind: "state", label: "太陽西下，草原變暗，只剩草間反光的白反覆擺動", start: "06:42", end: "07:14" },
@@ -221,7 +221,7 @@ window.SCENES = [
     period: "清晨 → 傍晚、黃昏",
     base: "user/keyframes/base-styleframe.webp", // 使用者提供的基準圖（2026-10-20，取代 r3 MKBUV2）
     preview: "user/preview-edit-0919-web.mp4",
-    cues: { label: "重拍", times: [53.06, 81.72, 119.72, 146.39, 178.39, 221.05, 263.71, 290.37, 319.71, 341.04, 386.23, 446.39, 473.06] },
+    cues: { label: "重拍", times: [91, 146.39, 221.05, 290.37, 300, 319.71, 341.04, 386.23, 446.39] },
     drums: [{ start: "00:44", end: "01:49" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "天色染亮海洋", start: "00:00", end: "00:52" },
@@ -315,7 +315,7 @@ window.SCENES = [
     period: "中午 → 傍晚、黃昏",
     preview: "user/preview-edit-0919-web.mp4",
     base: "r2/keyframes/base-krea-a-HVS7DY.png",
-    cues: { label: "重拍", times: [316.79, 393.0, 479.04] },
+    cues: { label: "重拍", times: [67, 219, 316.79, 479.04] },
     drums: [{ start: "02:35", end: "03:44" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "白色的雲霧往鏡頭飛，漸漸散開露出背景的天空", start: "00:00", end: "01:07" },
@@ -371,7 +371,7 @@ window.SCENES = [
     period: "清晨 → 傍晚、黃昏",
     base: "r4/keyframes/base-painterly-high-AFV9LF.webp", // r4：較高俯角、畫意（取代 base-krea-a-RE27ZJ.png，舊檔保留）
     preview: "user/preview-edit-0919-web.mp4",
-    cues: { label: "重拍", times: [59.76, 84.76, 109.77, 135.77, 171.74, 199.63, 269.76, 303.77, 327.27, 375.77, 408.76] },
+    cues: { label: "重拍", times: [59.76, 171.74, 199.63, 269.76] },
     drums: [{ start: "05:30", end: "06:55" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "沙漠顏色柔和，天漸漸亮起", start: "00:00", end: "01:01" },
