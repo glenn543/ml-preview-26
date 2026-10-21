@@ -333,7 +333,7 @@ window.SCENES = [
         id: "intro",
         time: "00:00–01:07",
         idea: "風捲雲；雲與光影變化",
-        keyframes: ["r2/keyframes/base-krea-a-HVS7DY.png"],
+        keyframes: ["user/keyframes/intro-1-soft-fog.png"],
         note: "Connect Cut（接上一段）：延續上一個主題的白畫面；轉折在 01:07",
       },
       {
