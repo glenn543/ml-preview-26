@@ -2,6 +2,25 @@
    新增的樣式請寫在這裡。 */
 
 /* 時間軸：實拍鼓點橫條（顏色取自分鏡稿的粉紫色） */
+/* 時間軸：音樂時間點（黃色圓點，content.js 的 scene.cues） */
+.cue-row {
+  position: relative;
+  height: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+.cue-dot {
+  position: absolute;
+  top: 50%;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 9999px;
+  background: #facc15;
+  box-shadow: 0 0 0 1.5px rgb(0 0 0 / 0.35);
+  transform: translate(-50%, -50%);
+}
+.cue-dot.is-seekable { cursor: pointer; }
+.cue-dot.is-seekable:hover { transform: translate(-50%, -50%) scale(1.4); }
+
 .drum-row {
   position: relative;
   height: 1.25rem;

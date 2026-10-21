@@ -314,7 +314,18 @@ function Timeline(scene, { onSeek, onSelectSection }) {
     }, h("span", { class: "drum-band-label" }, label), h("span", { class: "drum-band-time" }, `${d.start}–${d.end}`));
   });
 
+  // 音樂時間點：時間軸最上方的黃色圓點（content.js 的 scene.cues = { label, times: [秒] }）
+  const cueTimes = (scene.cues?.times || []).filter((t) => t >= 0 && t <= total);
+  const cueLabel = scene.cues?.label || "音樂時間點";
+  const cues = cueTimes.map((t, i) => h("span", {
+    class: cx("cue-dot", onSeek && "is-seekable"),
+    style: { left: pct(t) },
+    title: `${cueLabel} ${i + 1}：${fmtTime(t)}（${t.toFixed(2)} 秒）`,
+    onclick: onSeek ? () => onSeek(t) : null,
+  }));
+
   const body = h("div", { class: "relative" },
+    cues.length > 0 && h("div", { class: "cue-row" }, cues),
     drums.length > 0 && h("div", { class: "drum-row" }, drums),
     h("div", { class: "relative h-8" }, secButtons),
     lane,
@@ -327,6 +338,7 @@ function Timeline(scene, { onSeek, onSelectSection }) {
       ticks.map((t) => h("span", { class: "absolute top-0 h-full border-l border-foreground/20 pl-0.5", style: { left: pct(t) } }, t % 60 === 0 ? fmtTime(t) : ""))),
     body,
     h("p", { class: "text-xs text-muted-foreground" },
+      cueTimes.length ? `黃色圓點是${cueLabel}（${cueTimes.length} 個）。` : "",
       scene.drums?.length ? "粉紫色橫條是實拍鼓點區間。" : "",
       scene.effects?.length ? "最下方是特效：藍＝常駐、橘＝VFX、紫＝和鼓點綁定的 VFX、灰字＝畫面狀態。" : "",
       "上排是分段，下排是各 keyframe 的狀態位置；白色漸層是 cross fade，下方數字是秒數。",
