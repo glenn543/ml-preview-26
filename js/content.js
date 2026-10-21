@@ -124,7 +124,7 @@ window.SCENES = [
       { kind: "state", label: "天色漸亮染亮草原", start: "00:00", end: "01:11" },
       { kind: "constant", label: "草浪擺動", start: "01:11", end: "06:42" },
       { kind: "vfx", label: "風開始吹拂", start: "01:11", end: "03:58" },
-      { kind: "drum", label: "光線染金草原", start: "04:40", end: "05:44" },
+      { kind: "drum", label: "花瓣飛過鏡頭", start: "04:40", end: "05:44" },
       { kind: "vfx", label: "強風吹拂草原、花瓣飛掠過鏡頭", start: "05:57", end: "06:42" },
       { kind: "state", label: "太陽西下，草原變暗，只剩草間反光的白反覆擺動", start: "06:42", end: "07:14" },
     ],
@@ -170,7 +170,7 @@ window.SCENES = [
       {
         id: "2-A-1",
         time: "04:40–05:57",
-        idea: "陽光染黃了草原（實拍鼓點：光線染金草原）",
+        idea: "陽光染黃了草原（實拍鼓點：花瓣飛過鏡頭）",
         keyframes: ["r5/keyframes/kf3-specks-moderate-3PZ2SX.png"],
         at: [308],
         fades: [20],
