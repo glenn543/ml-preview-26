@@ -18,6 +18,7 @@
   box-shadow: 0 0 0 1.5px rgb(0 0 0 / 0.35);
   transform: translate(-50%, -50%);
 }
+.cue-dot-green { background: #8af0a6; }
 .cue-dot.is-seekable { cursor: pointer; }
 .cue-dot.is-seekable:hover { transform: translate(-50%, -50%) scale(1.4); }
 

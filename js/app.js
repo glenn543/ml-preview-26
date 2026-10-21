@@ -314,15 +314,20 @@ function Timeline(scene, { onSeek, onSelectSection }) {
     }, h("span", { class: "drum-band-label" }, label), h("span", { class: "drum-band-time" }, `${d.start}–${d.end}`));
   });
 
-  // 音樂時間點：時間軸最上方的黃色圓點（content.js 的 scene.cues = { label, times: [秒] }）
+  // 音樂時間點：黃點與選填的亮綠點共用時間軸列。
   const cueTimes = (scene.cues?.times || []).filter((t) => t >= 0 && t <= total);
+  const greenTimes = (scene.cues?.greenTimes || []).filter((t) => t >= 0 && t <= total);
   const cueLabel = scene.cues?.label || "音樂時間點";
-  const cues = cueTimes.map((t, i) => h("span", {
-    class: cx("cue-dot", onSeek && "is-seekable"),
+  const greenLabel = scene.cues?.greenLabel || "特效時間點";
+  const cues = [
+    { times: cueTimes, label: cueLabel, green: false },
+    { times: greenTimes, label: greenLabel, green: true },
+  ].flatMap((group) => group.times.map((t, i) => h("span", {
+    class: cx("cue-dot", group.green && "cue-dot-green", onSeek && "is-seekable"),
     style: { left: pct(t) },
-    title: `${cueLabel} ${i + 1}：${fmtTime(t)}（${t.toFixed(2)} 秒）`,
+    title: `${group.label} ${i + 1}：${fmtTime(t)}（${t.toFixed(2)} 秒）`,
     onclick: onSeek ? () => onSeek(t) : null,
-  }));
+  })));
 
   const body = h("div", { class: "relative" },
     cues.length > 0 && h("div", { class: "cue-row" }, cues),
@@ -339,6 +344,7 @@ function Timeline(scene, { onSeek, onSelectSection }) {
     body,
     h("p", { class: "text-xs text-muted-foreground" },
       cueTimes.length ? `黃色圓點是${cueLabel}（${cueTimes.length} 個）。` : "",
+      greenTimes.length ? `亮綠色圓點是${greenLabel}（${greenTimes.length} 個）。` : "",
       scene.drums?.length ? "粉紫色橫條是實拍鼓點區間。" : "",
       scene.effects?.length ? "最下方是特效：藍＝常駐、橘＝VFX、紫＝和鼓點綁定的 VFX、灰字＝畫面狀態。" : "",
       "上排是分段，下排是各 keyframe 的狀態位置；白色漸層是 cross fade，下方數字是秒數。",

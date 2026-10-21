@@ -63,12 +63,12 @@ window.SCENES = [
     preview: "user/preview-edit-0930-web.mp4",
     base: "user/keyframes/base-lotus-reflection.webp", // 使用者提供（原本是 r5/keyframes/base-lotus-blue-R5E75W.png）
     drums: [{ start: "00:45", end: "02:59" }], // 實拍鼓點
-    cues: { label: "低音重拍", times: [71.23, 120.04, 148.01, 189.57, 227.84, 284.28, 332.08, 357.5, 402.4, 428.41, 448.41, 476.41, 502.4, 542.41, 576.4, 624.41, 662.39, 685.95] },
+    cues: { label: "低音重拍", times: [402.4, 428.41, 448.41, 476.41, 502.4, 542.41, 576.4, 624.41, 662.39, 685.95], greenLabel: "簫／殘影", greenTimes: [103, 164, 203, 221, 245, 336, 345] },
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "破碎的波形，逐漸緩和成平穩水面", start: "00:00", end: "00:50" }, // 依分鏡稿（使用者 10-20 改回；10-16 曾改成清晰 → 破碎）
       { kind: "constant", label: "水面波動", start: "00:50", end: "11:09" },
       { kind: "drum", label: "控制畫面水波強弱", start: "00:45", end: "02:59" },
-      { kind: "vfx", label: "簫控制畫面動態殘影顯示", start: "01:43", end: "02:29" },
+      { kind: "vfx", color: "green", label: "簫控制畫面動態殘影顯示", start: "01:43", end: "02:29" },
       { kind: "vfx", label: "延展、拓展、延伸", start: "06:16", end: "09:04" },
       { kind: "state", label: "風又開始吹拂，畫面開始變得破碎、細碎", start: "11:09", end: "11:35" },
     ],
@@ -221,7 +221,7 @@ window.SCENES = [
     period: "清晨 → 傍晚、黃昏",
     base: "user/keyframes/base-styleframe.webp", // 使用者提供的基準圖（2026-10-20，取代 r3 MKBUV2）
     preview: "user/preview-edit-0919-web.mp4",
-    cues: { label: "重拍", times: [91, 146.39, 221.05, 290.37, 300, 319.71, 341.04, 386.23, 446.39] },
+    cues: { label: "重拍", times: [91, 146.39, 221.05, 300, 319.71, 341.04, 386.23, 446.39] },
     drums: [{ start: "00:44", end: "01:49" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "天色染亮海洋", start: "00:00", end: "00:52" },
