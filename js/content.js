@@ -379,7 +379,7 @@ window.SCENES = [
       { kind: "vfx", label: "陽光讓沙漠的對比變強", start: "01:01", end: "02:25" },
       { kind: "vfx", color: "green", label: "揚起漫天飛沙、沙塵暴（吹奏樂器 02:03）", start: "02:03", end: "03:33" },
       { kind: "vfx", label: "沙散去，地形變換", start: "02:34", end: "04:40" },
-      { kind: "vfx", label: "揚起稍多飛沙", start: "03:33", end: "05:03" },
+      { kind: "vfx", label: "模糊殘影", start: "03:33", end: "05:03" },
       { kind: "drum", label: "熱浪扭曲", start: "05:30", end: "06:55" },
       { kind: "vfx", label: "太陽漸西沉，環境顏色變成鮮豔的金黃色", start: "05:36", end: "06:55" },
       { kind: "vfx", label: "漸漸揚起飛沙，最後遮蓋畫面", start: "06:21", end: "06:55" },
