@@ -60,7 +60,7 @@ window.SCENES = [
     title: "倒影",
     length: "11:35",
     period: "上午 → 下午",
-    preview: "user/preview-edit-0930-web.mp4",
+    preview: "user/preview-edit-0930-3-web.mp4",
     base: "user/keyframes/base-lotus-reflection.webp", // 使用者提供（原本是 r5/keyframes/base-lotus-blue-R5E75W.png）
     drums: [{ start: "00:45", end: "02:59" }], // 實拍鼓點
     cues: { label: "低音重拍", times: [402.4, 428.41, 476.41, 502.4, 542.41, 662.39, 685.95], greenLabel: "簫／殘影", greenTimes: [105, 134, 153, 164, 204, 222, 245, 307, 336, 345] },
@@ -125,7 +125,7 @@ window.SCENES = [
       { kind: "constant", label: "草浪擺動", start: "01:11", end: "06:42" },
       { kind: "vfx", label: "擺動出現殘影", start: "01:11", end: "03:58" },
       { kind: "drum", label: "花瓣飛過鏡頭", start: "04:40", end: "05:44" },
-      { kind: "vfx", label: "強風吹拂草原、花瓣飛掠過鏡頭", start: "05:57", end: "06:42" },
+      { kind: "vfx", label: "強風吹拂草原", start: "05:57", end: "06:42" },
       { kind: "state", label: "太陽西下，草原變暗，只剩草間反光的白反覆擺動", start: "06:42", end: "07:14" },
     ],
     sections: [
