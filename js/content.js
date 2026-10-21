@@ -371,7 +371,7 @@ window.SCENES = [
     period: "清晨 → 傍晚、黃昏",
     base: "r4/keyframes/base-painterly-high-AFV9LF.webp", // r4：較高俯角、畫意（取代 base-krea-a-RE27ZJ.png，舊檔保留）
     preview: "user/preview-edit-0919-web.mp4",
-    cues: { label: "重拍", times: [59.76, 171.74, 199.63, 269.76] },
+    cues: { label: "重拍", times: [59.76, 171.74, 199.63, 269.76], greenLabel: "沙塵暴", greenTimes: [123] },
     drums: [{ start: "05:30", end: "06:55" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "沙漠顏色柔和，天漸漸亮起", start: "00:00", end: "01:01" },
