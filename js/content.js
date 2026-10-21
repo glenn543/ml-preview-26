@@ -221,6 +221,7 @@ window.SCENES = [
     period: "清晨 → 傍晚、黃昏",
     base: "user/keyframes/base-styleframe.webp", // 使用者提供的基準圖（2026-10-20，取代 r3 MKBUV2）
     preview: "user/preview-edit-0919-web.mp4",
+    cues: { label: "重拍", times: [53.06, 81.72, 119.72, 146.39, 178.39, 221.05, 263.71, 290.37, 319.71, 341.04, 386.23, 446.39, 473.06] },
     drums: [{ start: "00:44", end: "01:49" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "天色染亮海洋", start: "00:00", end: "00:52" },
