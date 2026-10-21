@@ -366,7 +366,7 @@ window.SCENES = [
     length: "06:55",
     period: "清晨 → 傍晚、黃昏",
     base: "r4/keyframes/base-painterly-high-AFV9LF.webp", // r4：較高俯角、畫意（取代 base-krea-a-RE27ZJ.png，舊檔保留）
-    preview: "r9/preview-v3-web.mp4", // 預覽 v3：d4 換 r9 M3Z4Q7（風往右）；8 支片段循環接，不加配樂（使用者指定），結尾 10 秒淡成淺米色底
+    preview: "user/preview-edit-0919-web.mp4",
     drums: [{ start: "05:30", end: "06:55" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "沙漠顏色柔和，天漸漸亮起", start: "00:00", end: "01:01" },
