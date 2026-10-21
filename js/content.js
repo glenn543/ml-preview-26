@@ -60,6 +60,7 @@ window.SCENES = [
     title: "倒影",
     length: "11:35",
     period: "上午 → 下午",
+    preview: "user/preview-edit-0930-web.mp4",
     base: "user/keyframes/base-lotus-reflection.webp", // 使用者提供（原本是 r5/keyframes/base-lotus-blue-R5E75W.png）
     drums: [{ start: "00:45", end: "02:59" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
@@ -115,7 +116,7 @@ window.SCENES = [
     title: "草原",
     length: "07:14",
     period: "清晨 → 傍晚、黃昏",
-    preview: "r8/preview-v3-web.mp4",
+    preview: "user/preview-edit-0919-web.mp4",
     drums: [{ start: "04:40", end: "05:44" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "天色漸亮染亮草原", start: "00:00", end: "01:11" },
@@ -217,7 +218,7 @@ window.SCENES = [
     length: "08:10",
     period: "清晨 → 傍晚、黃昏",
     base: "user/keyframes/base-styleframe.webp", // 使用者提供的基準圖（2026-10-20，取代 r3 MKBUV2）
-    preview: "r12/preview-v6-web.mp4", // r12 預覽 v6：3-D 換成浪向和前面一致的 AXTGWQ；其餘同 v5，只正放、不加配樂（使用者指定）
+    preview: "user/preview-edit-0919-web.mp4",
     drums: [{ start: "00:44", end: "01:49" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "天色染亮海洋", start: "00:00", end: "00:52" },
@@ -309,6 +310,7 @@ window.SCENES = [
     title: "雲",
     length: "08:39",
     period: "中午 → 傍晚、黃昏",
+    preview: "user/preview-edit-0919-web.mp4",
     base: "r2/keyframes/base-krea-a-HVS7DY.png",
     drums: [{ start: "02:35", end: "03:44" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
