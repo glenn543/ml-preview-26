@@ -63,7 +63,7 @@ window.SCENES = [
     preview: "user/preview-edit-0930-web.mp4",
     base: "user/keyframes/base-lotus-reflection.webp", // 使用者提供（原本是 r5/keyframes/base-lotus-blue-R5E75W.png）
     drums: [{ start: "00:45", end: "02:59" }], // 實拍鼓點
-    cues: { label: "低音重拍", times: [402.4, 428.41, 448.41, 476.41, 502.4, 542.41, 576.4, 624.41, 662.39, 685.95], greenLabel: "簫／殘影", greenTimes: [103, 164, 203, 221, 245, 336, 345] },
+    cues: { label: "低音重拍", times: [402.4, 428.41, 476.41, 502.4, 542.41, 662.39, 685.95], greenLabel: "簫／殘影", greenTimes: [105, 134, 153, 164, 204, 222, 245, 307, 336, 345] },
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "破碎的波形，逐漸緩和成平穩水面", start: "00:00", end: "00:50" }, // 依分鏡稿（使用者 10-20 改回；10-16 曾改成清晰 → 破碎）
       { kind: "constant", label: "水面波動", start: "00:50", end: "11:09" },
