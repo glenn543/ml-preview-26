@@ -1,0 +1,96 @@
+/* 自訂樣式。css/app.css 是原站編譯好的 Tailwind，只包含原站用過的 class；
+   新增的樣式請寫在這裡。 */
+
+/* 時間軸：實拍鼓點橫條（顏色取自分鏡稿的粉紫色） */
+.drum-row {
+  position: relative;
+  height: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+.drum-band {
+  position: absolute;
+  inset-block: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  overflow: hidden;
+  padding-inline: 0.375rem;
+  border-radius: 0.25rem;
+  background: #e2a6f5;
+  color: #4a1460;
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.drum-band.is-seekable { cursor: pointer; }
+.drum-band.is-seekable:hover { background: #ebbdf8; }
+.drum-band-label { font-weight: 600; }
+.drum-band-time { font-variant-numeric: tabular-nums; opacity: 0.75; }
+
+/* 時間軸：特效列（顏色對應分鏡稿：藍＝常駐、橘＝VFX、紫＝鼓點 VFX、灰字＝畫面狀態） */
+.effect-rows {
+  margin-top: 0.25rem;
+  display: grid;
+  gap: 0.25rem;
+}
+.effect-row {
+  position: relative;
+  height: 1.25rem; /* 預設一行；app.js 會依文字長度調整 */
+}
+.effect-band {
+  position: absolute;
+  inset-block: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  overflow: hidden;
+  padding: 0.1875rem 0.375rem;
+  border-radius: 0.625rem;
+  font-size: 11px;
+  line-height: 1.3;
+}
+/* 量高度時讓標籤長成自然高度（app.js 的 EffectRows 會依此設定列高） */
+.effect-row.is-measuring .effect-band { bottom: auto; }
+.effect-band b { font-weight: 700; }
+/* 一行放不下就往下換行（很窄的區段最多 4 行，超過才用 … 截斷） */
+.effect-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  min-width: 0;
+  word-break: break-all;
+}
+.effect-band.is-seekable { cursor: pointer; }
+.effect-band.is-seekable:hover { filter: brightness(1.15); }
+.effect-constant { background: #a9c4e8; color: #2a3f9e; }
+.effect-vfx { border: 1px solid #e0661c; color: #f08a4b; background: rgba(224, 102, 28, 0.12); }
+.effect-drum { border: 1px solid #b32de0; color: #d07af0; background: rgba(179, 45, 224, 0.15); }
+.effect-state { color: var(--muted-foreground); border-radius: 0; padding-inline: 0.125rem; }
+
+/* 段落左欄的特效清單 */
+.section-effects { display: grid; gap: 0.25rem; }
+.section-effects li { position: relative; display: block; padding: 0 0 0 0.875rem; background: none; border: 0; line-height: 1.4; }
+.section-effects li.effect-constant, .section-effects li.effect-vfx, .section-effects li.effect-drum { color: inherit; }
+.effect-dot { position: absolute; left: 0; top: 0.35em; width: 0.5rem; height: 0.5rem; border-radius: 999px; background: currentColor; }
+.section-effects .effect-constant .effect-dot { color: #a9c4e8; }
+.section-effects .effect-vfx .effect-dot { color: #f08a4b; }
+.section-effects .effect-drum .effect-dot { color: #d07af0; }
+.section-effects .effect-state .effect-dot { color: var(--muted-foreground); }
+
+/* 比較頁的滑桿：用透明的原生 range input 蓋在原站造型上，負責拖曳與鍵盤操作 */
+.slider-input {
+  position: absolute;
+  inset: -8px 0;
+  width: 100%;
+  height: calc(100% + 16px);
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.slider-input:hover ~ [data-slot="slider-thumb"],
+[data-slot="slider-thumb"]:has(~ .slider-input:hover),
+[data-slot="slider-thumb"]:has(~ .slider-input:focus-visible) {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+}
