@@ -315,6 +315,7 @@ window.SCENES = [
     period: "中午 → 傍晚、黃昏",
     preview: "user/preview-edit-0919-web.mp4",
     base: "r2/keyframes/base-krea-a-HVS7DY.png",
+    cues: { label: "重拍", times: [316.79, 393.0, 479.04] },
     drums: [{ start: "02:35", end: "03:44" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
       { kind: "state", label: "白色的雲霧往鏡頭飛，漸漸散開露出背景的天空", start: "00:00", end: "01:07" },
