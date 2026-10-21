@@ -86,6 +86,7 @@
 .effect-constant { background: #a9c4e8; color: #2a3f9e; }
 .effect-vfx { border: 1px solid #e0661c; color: #f08a4b; background: rgba(224, 102, 28, 0.12); }
 .effect-drum { border: 1px solid #b32de0; color: #d07af0; background: rgba(179, 45, 224, 0.15); }
+.effect-band.effect-green { border: 1px solid #65e68b; color: #8af0a6; background: rgba(101, 230, 139, 0.15); }
 .effect-state { color: var(--muted-foreground); border-radius: 0; padding-inline: 0.125rem; }
 
 /* 段落左欄的特效清單 */
@@ -96,6 +97,7 @@
 .section-effects .effect-constant .effect-dot { color: #a9c4e8; }
 .section-effects .effect-vfx .effect-dot { color: #f08a4b; }
 .section-effects .effect-drum .effect-dot { color: #d07af0; }
+.section-effects .effect-green .effect-dot { color: #8af0a6; }
 .section-effects .effect-state .effect-dot { color: var(--muted-foreground); }
 
 /* 比較頁的滑桿：用透明的原生 range input 蓋在原站造型上，負責拖曳與鍵盤操作 */

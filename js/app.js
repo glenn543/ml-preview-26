@@ -218,7 +218,7 @@ function EffectRows(scene, pct, onSeek) {
   }
   const el = h("div", { class: "effect-rows" }, rows.map((row) =>
     h("div", { class: "effect-row" }, row.items.map((e) => h("div", {
-      class: cx("effect-band", `effect-${e.kind}`, onSeek && "is-seekable"),
+      class: cx("effect-band", `effect-${e.kind}`, e.color === "green" && "effect-green", onSeek && "is-seekable"),
       style: { left: pct(e.a), width: pct(e.b - e.a) },
       title: `${EFFECT_KINDS[e.kind] || e.kind}｜${e.label}\n${e.start}–${e.end}`,
       onclick: onSeek ? () => onSeek(e.a) : null,
@@ -246,7 +246,7 @@ function SectionEffects(scene, sec) {
   const list = (scene.effects || []).filter((e) => toSeconds(e.start) < b && toSeconds(e.end) > a);
   if (list.length === 0) return null;
   return h("ul", { class: "section-effects text-xs" }, list.map((e) =>
-    h("li", { class: `effect-${e.kind}` },
+    h("li", { class: cx(`effect-${e.kind}`, e.color === "green" && "effect-green") },
       h("span", { class: "effect-dot" }),
       h("span", { class: "text-muted-foreground" }, `${EFFECT_KINDS[e.kind] || e.kind}　`),
       e.label, h("span", { class: "text-muted-foreground tabular-nums" }, `　${e.start}–${e.end}`))));
