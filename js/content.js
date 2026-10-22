@@ -327,7 +327,10 @@ window.SCENES = [
     length: "08:39",
     period: "中午 → 傍晚、黃昏",
     preview: "user/preview-edit-0919-web.mp4",
-    base: "r2/keyframes/base-krea-a-HVS7DY.png",
+    base: [ // Styleframe：2026-10-22 使用者提供的 2 張，取代 r2/keyframes/base-krea-a-HVS7DY.png（檔案保留）
+      "user/keyframes/styleframe-1-sun-through-clouds.jpg",
+      "user/keyframes/styleframe-2-radiant-mist.jpg",
+    ],
     cues: { label: "重拍", times: [67, 219, 316.79, 479.04] },
     drums: [{ start: "02:35", end: "03:44" }], // 實拍鼓點
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
