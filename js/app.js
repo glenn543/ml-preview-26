@@ -5,7 +5,7 @@
  * 結構（對照原站元件）：
  *   renderApp()          頁首 + 場景分頁 +「點數」分頁
  *   ScenePanel()         場景說明 +「分鏡／比較」子分頁
- *   Storyboard()         時間軸、預覽影片、基準圖、各段落
+ *   Storyboard()         時間軸、預覽影片、各段落（基準圖由 ScenePanel 放到分頁上方）
  *   Timeline()           上排分段 / 下排 keyframe 位置 / cross fade
  *   MediaGrid / MediaCard 縮圖格與縮圖卡（含 A、B 比較按鈕）
  *   ComparePanel()       A/B 比較（並排、滑桿、疊化）
@@ -90,10 +90,13 @@ function ScenePanel(scene) {
     active: state.view,
     onChange: (v) => { state.view = v; resetCompareUi(); renderApp(); },
   });
-  tabs.root.append(TabPanel("pt-4", state.view === "storyboard" ? Storyboard(scene) : ComparePanel()));
+  const board = state.view === "storyboard" ? Storyboard(scene) : null;
+  tabs.root.append(TabPanel("pt-4", board ?? ComparePanel()));
 
+  // 分鏡頁：基準圖放在場景說明下方、分頁上方（board._base 由 Storyboard 產生，燈箱序列不變）
   return TabPanel("space-y-4 pt-2",
     h("p", { class: "text-sm text-muted-foreground" }, `${scene.length} · ${scene.period} · data/${scene.dir}/`),
+    board?._base,
     tabs.root);
 }
 
@@ -151,13 +154,13 @@ function Storyboard(scene) {
     });
   }
 
-  return h("div", { class: "space-y-6" },
-    h("section", { class: "space-y-3" }, video, timeline.el),
+  // 基準圖：由 ScenePanel 放到分頁上方
+  const base = baseItems.length > 0 ? h("section", { class: "space-y-2" },
+    h("h3", { class: "font-medium" }, "基準圖", " ", scene.base ? Badge("default", "已選") : Badge("secondary", "候選，待選")),
+    MediaGrid(baseItems, kfAll, 0)) : null;
 
-    // 基準圖
-    baseItems.length > 0 && h("section", { class: "space-y-2" },
-      h("h3", { class: "font-medium" }, "基準圖", " ", scene.base ? Badge("default", "已選") : Badge("secondary", "候選，待選")),
-      MediaGrid(baseItems, kfAll, 0)),
+  const board = h("div", { class: "space-y-6" },
+    h("section", { class: "space-y-3" }, video, timeline.el),
 
     // 各段落
     scene.sections.map((sec, i) => {
@@ -180,6 +183,8 @@ function Storyboard(scene) {
             h("p", { class: "text-xs text-muted-foreground" }, "片段"),
             MediaGrid(clips, clipAll, clipOffset[i]))));
     }));
+  board._base = base;
+  return board;
 }
 
 /* ---- 時間軸 ---- */
