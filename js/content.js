@@ -374,62 +374,38 @@ window.SCENES = [
         time: "00:00–01:01",
         idea: "清晨天漸漸亮起，天空與色溫的變化",
         note: "Connect Cut（接上一段）：延續前一支畫面由上的藍漸層至下方的橘（如天空與沙漠）",
-        keyframes: [
-          "r4/keyframes/d1-predawn-painterly-FPFIUI.webp", // r4：較高俯角、畫意（取代 d1-predawn-BP1RCS.png，舊檔保留）
-          "r4/keyframes/d2-morning-painterly-NB01A5.webp", // r4：較高俯角、畫意（取代 d2-morning-muted-914MDQ.png，舊檔保留）
-        ],
-        clips: [
-          "r7/clips/d1-predawn-LCX0WI.mp4",
-          "r7/clips/d2-morning-0AXJI3.mp4",
-        ],
-        at: [0, 30],
-        fades: [0, 6],
-        method: "LTX 2.5 720P 15 秒，頭尾幀同一張 keyframe（r7）。預覽 v1：飛沙只正放、首尾相同循環接（接縫 cross fade 2–3 秒），換 keyframe 時 6 秒",
+        keyframes: ["user/keyframes/desert-01.jpg"], // desert_01
+        at: [0],
+        fades: [0],
+        note: "Connect Cut（接上一段）：延續前一支畫面由上的藍漸層至下方的橘（如天空與沙漠） 2026-10-22 依使用者要求：keyframe 換成使用者提供的 desert_01–06（user/keyframes/desert-0N.jpg，536×300 縮圖）；片段先拿掉，等使用者提供新影片（r7／r9 片段檔案保留）",
       },
       {
         id: "5-A",
         time: "01:01–02:03",
         idea: "光線照射讓沙的對比堅定",
-        keyframes: ["r4/keyframes/d3-painterly-high-UL5CPI.webp"], // r4 試做：較高俯角、沙漠佔約 85%、暖金畫意（取代 r3 XV5M9V，舊檔保留）
-        clips: ["r7/clips/d3-contrast-RCJB8D.mp4"],
+        keyframes: ["user/keyframes/desert-02.jpg"], // desert_02
         at: [61],
         fades: [6],
-        method: "LTX 2.5 720P 15 秒，頭尾幀同一張 keyframe（r7）。預覽 v1：飛沙只正放、首尾相同循環接（接縫 cross fade 2–3 秒），換 keyframe 時 6 秒",
+        note: "2026-10-22 依使用者要求：keyframe 換成使用者提供的 desert_01–06（user/keyframes/desert-0N.jpg，536×300 縮圖）；片段先拿掉，等使用者提供新影片（r7／r9 片段檔案保留）",
       },
       {
         id: "5-B",
         time: "02:03–05:36",
         idea: "漫天飛砂不時穿插於沙丘間；陽光角度變化影響陰影與立體感，地面細沙閃爍；漫漫飛砂、細沙閃爍",
-        keyframes: [
-          "r9/keyframes/d4-sandstorm-right-W8142A.webp", // r9：沙塵暴改成風往右、沙從地面揚起（以 QBPZWU 為參考；舊的 r4 P3RV54 往左，不用）
-          "r6/keyframes/d5-bigcurves-KWR93T.webp", // r6：圓弧沙丘換大小與排列，和 d1–d4 不同（取代 r5 長條沙脊 CVPAS6，舊檔保留）
-          "r6/keyframes/d6-bigcurves-haze-M91Z4P.webp", // r6：圓弧沙丘換大小與排列，和 d1–d4 不同（取代 r5 長條沙脊 8A1TLI，舊檔保留）
-        ],
-        clips: [
-          "r9/clips/d4-sandstorm-M3Z4Q7.mp4", // r9：以 W8142A 為頭尾幀重生，風沙往右，正放
-          "r7/clips/d5-afternoon-4AX2AV.mp4",
-          "r7/clips/d6-haze-3O99T6.mp4",
-        ],
+        keyframes: ["user/keyframes/desert-03.jpg", "user/keyframes/desert-04.jpg", "user/keyframes/desert-05.jpg"], // desert_03、desert_04、desert_05
         at: [123, 194, 265],
         fades: [6, 6, 6],
-        method: "LTX 2.5 720P 15 秒，頭尾幀同一張 keyframe（r7）。預覽 v1：飛沙只正放、首尾相同循環接（接縫 cross fade 2–3 秒），換 keyframe 時 6 秒",
+        note: "2026-10-22 依使用者要求：keyframe 換成使用者提供的 desert_01–06（user/keyframes/desert-0N.jpg，536×300 縮圖）；片段先拿掉，等使用者提供新影片（r7／r9 片段檔案保留）",
       },
       {
         id: "5-C",
         time: "05:36–06:55",
         idea: "太陽西沉，環境顏色變成鮮豔的金黃色；漸漸揚起飛沙，最後遮蓋畫面",
         note: "原 5-D（10-19 分鏡稿改名 5-C）。順序依腳本：先太陽西沉（d7），再漸漸揚起飛沙遮蓋畫面（d8）。結尾：畫面顏色越來越均勻、越淺白，最後畫面變成素色底",
-        keyframes: [
-          "r6/keyframes/d7-bigcurves-sunset-soft-KGRG3W.webp", // d7：原 d8 日落與 d7 互換，ffmpeg 調淡金黃（KGRG3W 調色版，原檔保留）
-          "r6/keyframes/d8-bigcurves-sandstorm-3U0ENY.webp", // d8：原 d7 沙暴與 d8 互換（3U0ENY 複本）
-        ],
-        clips: [
-          "r7/clips/d7-sunset-RHQJJV.mp4",
-          "r7/clips/d8-sandstorm-SCX9TX-rev.mp4", // 倒放：原片風沙往左，和其他支相反
-        ],
-        at: [336, 375],
-        fades: [6, 6],
-        method: "LTX 2.5 720P 15 秒，頭尾幀同一張 keyframe（r7）。預覽 v1：飛沙只正放、首尾相同循環接（接縫 cross fade 2–3 秒），換 keyframe 時 6 秒",
+        keyframes: ["user/keyframes/desert-06.jpg"], // desert_06
+        at: [336],
+        fades: [6],
+        note: "原 5-D（10-19 分鏡稿改名 5-C）。順序依腳本：先太陽西沉（d7），再漸漸揚起飛沙遮蓋畫面（d8）。結尾：畫面顏色越來越均勻、越淺白，最後畫面變成素色底 2026-10-22 依使用者要求：keyframe 換成使用者提供的 desert_01–06（user/keyframes/desert-0N.jpg，536×300 縮圖）；片段先拿掉，等使用者提供新影片（r7／r9 片段檔案保留）",
       },
     ],
   },
