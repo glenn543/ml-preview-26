@@ -313,32 +313,27 @@ window.SCENES = [
         id: "intro",
         time: "00:00–01:07",
         idea: "風捲雲；雲與光影變化",
-        keyframes: ["user/keyframes/intro-1-soft-fog.png"], // 使用者提供濃霧圖，舊圖保留
+        keyframes: ["user/keyframes/cloud-01.jpg", "user/keyframes/cloud-02.jpg"], // 2026-10-22 使用者提供 Cloud_01、Cloud_02（536×300 縮圖；舊圖保留）
         note: "Connect Cut（接上一段）：延續上一個主題的白畫面；轉折在 01:07",
       },
       {
         id: "4-A",
         time: "01:07–05:22",
         idea: "加入飛鳥掠過畫面，殘雲較淡薄；雲朵時厚時疏，陽光改變，天空顏色漸漸變深；風捲殘雲，雲加入顏色變化",
-        keyframes: [
-          "r3/keyframes/c2-thin-wisps-N9TGWY.png",
-          "r3/keyframes/c3-deeper-blue-WKED0P.png",
-          "r3/keyframes/c4-silver-edge-H9VL2G.png",
-          "r3/keyframes/c5-pink-orange-BM413U.png",
-        ],
+        keyframes: ["user/keyframes/cloud-03.jpg", "user/keyframes/cloud-04.jpg"], // 2026-10-22 使用者提供 Cloud_03、Cloud_04（536×300 縮圖；舊圖保留）
         note: "陽光改變，天空色溫從上午逐漸轉為夕陽",
       },
       {
         id: "4-B",
         time: "05:22–07:18",
         idea: "雲朵變厚；雲隙光時不時滲過雲；飛鳥掠過",
-        keyframes: ["r3/keyframes/c6-rays-YBM3AF.png"],
+        keyframes: ["user/keyframes/cloud-05.jpg", "user/keyframes/cloud-06.jpg"], // 2026-10-22 使用者提供 Cloud_05、Cloud_06（536×300 縮圖；舊圖保留）
       },
       {
         id: "4-C",
         time: "07:18–08:39",
         idea: "時間變晚，天空變得多彩",
-        keyframes: ["r3/keyframes/c7-dusk-VFSZ0I.png"],
+        keyframes: ["user/keyframes/cloud-07.jpg"], // 2026-10-22 使用者提供 Cloud_07（536×300 縮圖；舊圖保留）
         note: "天空漸漸變成太陽下山前的夕陽色",
       },
     ],
