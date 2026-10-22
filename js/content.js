@@ -61,7 +61,11 @@ window.SCENES = [
     length: "11:35",
     period: "上午 → 下午",
     preview: "user/preview-edit-0930-3-web.mp4",
-    base: "user/keyframes/base-lotus-reflection.webp", // 使用者提供（原本是 r5/keyframes/base-lotus-blue-R5E75W.png）
+    base: [ // Styleframe：第 1 張使用者提供（原本是 r5/keyframes/base-lotus-blue-R5E75W.png）；2026-10-22 使用者再加 2 張
+      "user/keyframes/base-lotus-reflection.webp",
+      "user/keyframes/styleframe-2-ink-swirl.webp",
+      "user/keyframes/styleframe-3-blue-ripples.webp",
+    ],
     drums: [{ start: "00:45", end: "02:59" }], // 實拍鼓點
     cues: { label: "低音重拍", times: [402.4, 428.41, 476.41, 502.4, 542.41, 662.39, 685.95], greenLabel: "簫／殘影", greenTimes: [105, 134, 153, 164, 204, 222, 245, 307, 336, 345] },
     effects: [ // 特效（分鏡稿 2026-10-19 調整版本；VFX 起訖依稿上位置估計）
@@ -114,6 +118,11 @@ window.SCENES = [
   {
     id: "02",
     dir: "02-grassland",
+    base: [ // Styleframe：2026-10-22 使用者提供的 3 張
+      "user/keyframes/styleframe-1-blue-night-grass.jpg",
+      "user/keyframes/styleframe-2-golden-grass.jpg",
+      "user/keyframes/styleframe-3-green-white-grass.jpg",
+    ],
     title: "草原",
     length: "07:14",
     period: "清晨 → 傍晚、黃昏",
@@ -219,7 +228,11 @@ window.SCENES = [
     title: "海",
     length: "08:10",
     period: "清晨 → 傍晚、黃昏",
-    base: "user/keyframes/base-styleframe.webp", // 使用者提供的基準圖（2026-10-20，取代 r3 MKBUV2）
+    base: [ // Styleframe：2026-10-22 使用者提供的 3 張；原本的基準圖 user/keyframes/base-styleframe.webp 依使用者要求拿掉（檔案保留）
+      "user/keyframes/styleframe-2-spray-rocks.jpg",
+      "user/keyframes/styleframe-3-misty-rays.jpg",
+      "user/keyframes/styleframe-4-crashing-wave.jpg",
+    ],
     preview: "user/preview-edit-0919-web.mp4",
     cues: { label: "重拍", times: [44, 91, 146.39, 221.05, 300, 319.71, 341.04, 386.23, 446.39] },
     drums: [{ start: "00:44", end: "01:49" }], // 實拍鼓點
