@@ -2,6 +2,28 @@
    新增的樣式請寫在這裡。 */
 
 /* 時間軸：實拍鼓點橫條（顏色取自分鏡稿的粉紫色） */
+/* 分鏡頁上方的 Styleframe：一格，寬度＝預覽影片（最寬 56rem）的一半；多張時左右箭頭切換 */
+.styleframe-viewer {
+  width: calc((min(100%, 56rem) - 0.75rem) / 2);
+}
+.sf-stage { position: relative; }
+.sf-nav {
+  position: absolute;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: rgb(0 0 0 / 0.5);
+  color: #fff;
+  font-size: 1.375rem;
+  line-height: 1;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.sf-nav:hover { background: rgb(0 0 0 / 0.75); }
+.sf-prev { left: 0.5rem; }
+.sf-next { right: 0.5rem; }
+
 /* 時間軸：音樂時間點（黃色圓點，content.js 的 scene.cues） */
 .cue-row {
   position: relative;

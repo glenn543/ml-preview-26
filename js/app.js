@@ -5,7 +5,7 @@
  * 結構（對照原站元件）：
  *   renderApp()          頁首 + 場景分頁 +「點數」分頁
  *   ScenePanel()         場景說明 +「分鏡／比較」子分頁
- *   Storyboard()         時間軸、預覽影片、各段落（基準圖由 ScenePanel 放到分頁上方）
+ *   Storyboard()         時間軸、預覽影片、各段落（Styleframe 由 ScenePanel 放到分頁上方）
  *   Timeline()           上排分段 / 下排 keyframe 位置 / cross fade
  *   MediaGrid / MediaCard 縮圖格與縮圖卡（含 A、B 比較按鈕）
  *   ComparePanel()       A/B 比較（並排、滑桿、疊化）
@@ -93,7 +93,7 @@ function ScenePanel(scene) {
   const board = state.view === "storyboard" ? Storyboard(scene) : null;
   tabs.root.append(TabPanel("pt-4", board ?? ComparePanel()));
 
-  // 分鏡頁：基準圖放在場景說明下方、分頁上方（board._base 由 Storyboard 產生，燈箱序列不變）
+  // 分鏡頁：Styleframe 放在場景說明下方、分頁上方（board._base 由 Storyboard 產生，燈箱序列不變）
   return TabPanel("space-y-4 pt-2",
     h("p", { class: "text-sm text-muted-foreground" }, `${scene.length} · ${scene.period} · data/${scene.dir}/`),
     board?._base,
@@ -125,8 +125,8 @@ const slotOf = (path) => (state.compare.A?.path === path ? "A" : state.compare.B
  * 分鏡
  * ===================================================================== */
 function Storyboard(scene) {
-  // 基準圖 + 各段 keyframe 串成一個序列，燈箱可以一路左右切換
-  const baseItems = mediaList(scene, [...(scene.base ? [scene.base] : []), ...(scene.candidates || [])]);
+  // Styleframe（scene.base，可放一張或多張）+ 各段 keyframe 串成一個序列，燈箱可以一路左右切換
+  const baseItems = mediaList(scene, [...[].concat(scene.base || []), ...(scene.candidates || [])]);
   const kfGroups = [baseItems, ...scene.sections.map((s) => mediaList(scene, s.keyframes))];
   const kfAll = kfGroups.flat();
   const kfOffset = kfGroups.map((_, i) => kfGroups.slice(0, i).reduce((n, g) => n + g.length, 0));
@@ -154,10 +154,10 @@ function Storyboard(scene) {
     });
   }
 
-  // 基準圖：由 ScenePanel 放到分頁上方
+  // Styleframe：由 ScenePanel 放到分頁上方；同一格左右切換，寬度是預覽影片的一半
   const base = baseItems.length > 0 ? h("section", { class: "space-y-2" },
-    h("h3", { class: "font-medium" }, "基準圖", " ", scene.base ? Badge("default", "已選") : Badge("secondary", "候選，待選")),
-    MediaGrid(baseItems, kfAll, 0)) : null;
+    h("h3", { class: "font-medium" }, "Styleframe"),
+    StyleframeViewer(baseItems, kfAll, 0)) : null;
 
   const board = h("div", { class: "space-y-6" },
     h("section", { class: "space-y-3" }, video, timeline.el),
@@ -375,6 +375,30 @@ function Timeline(scene, { onSeek, onSelectSection }) {
 function MediaGrid(items, sequence, offset) {
   return h("div", { class: "grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-3" },
     items.map((m, i) => MediaCard(m, () => Lightbox.open(sequence, offset + i))));
+}
+
+/** Styleframe：多張放在同一格，左右箭頭切換，下方顯示「第幾張 / 共幾張」；點圖開燈箱。沒有 A／B 比較鈕 */
+function StyleframeViewer(items, sequence, offset) {
+  let i = 0;
+  const frame = h("button", { type: "button", class: "block aspect-video w-full cursor-zoom-in", onclick: () => Lightbox.open(sequence, offset + i) });
+  const label = h("span", { class: "tabular-nums" });
+  const show = () => {
+    const m = items[i];
+    frame.replaceChildren(m.kind === "video"
+      ? h("video", { src: m.url, muted: true, loop: true, playsinline: true, preload: "metadata", class: "size-full object-cover" })
+      : h("img", { src: m.url, alt: m.name, class: "size-full object-cover" }));
+    frame.title = m.path;
+    label.textContent = `${i + 1} / ${items.length}`;
+  };
+  const step = (d) => { i = (i + d + items.length) % items.length; show(); };
+  const nav = items.length > 1 ? [
+    h("button", { type: "button", class: "sf-nav sf-prev", title: "上一張", "aria-label": "上一張", onclick: () => step(-1) }, "‹"),
+    h("button", { type: "button", class: "sf-nav sf-next", title: "下一張", "aria-label": "下一張", onclick: () => step(1) }, "›"),
+  ] : [];
+  show();
+  return h("figure", { class: cx(CLS.figure, "styleframe-viewer") },
+    h("div", { class: "sf-stage" }, frame, nav),
+    h("figcaption", { class: "flex items-center gap-1 px-2 py-1 text-xs" }, label));
 }
 
 function MediaCard(m, onOpen) {

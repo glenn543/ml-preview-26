@@ -333,7 +333,7 @@ window.SCENES = [
         id: "intro",
         time: "00:00–01:07",
         idea: "風捲雲；雲與光影變化",
-        keyframes: ["user/keyframes/intro-1-soft-fog.png"],
+        keyframes: ["user/keyframes/intro-1-soft-fog.png"], // 使用者提供濃霧圖，舊圖保留
         note: "Connect Cut（接上一段）：延續上一個主題的白畫面；轉折在 01:07",
       },
       {
@@ -369,7 +369,11 @@ window.SCENES = [
     title: "沙漠",
     length: "06:55",
     period: "清晨 → 傍晚、黃昏",
-    base: "r4/keyframes/base-painterly-high-AFV9LF.webp", // r4：較高俯角、畫意（取代 base-krea-a-RE27ZJ.png，舊檔保留）
+    base: [ // 2026-10-22 使用者提供的 Styleframe 三張（取代 r4 AFV9LF，檔案保留）
+      "user/keyframes/styleframe-1-gold-layers.webp",
+      "user/keyframes/styleframe-2-gold-ridges.webp",
+      "user/keyframes/styleframe-3-pastel-dunes.webp",
+    ],
     preview: "user/preview-edit-0919-web.mp4",
     cues: { label: "重拍", times: [59.76, 171.74, 199.63, 269.76], greenLabel: "沙塵暴", greenTimes: [123] },
     drums: [{ start: "05:30", end: "06:55" }], // 實拍鼓點
