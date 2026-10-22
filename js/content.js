@@ -241,71 +241,46 @@ window.SCENES = [
         id: "intro",
         time: "00:00–00:52",
         idea: "天漸漸亮起",
-        keyframes: [
-          "r12/keyframes/intro-1-dawn-dark-GOF6CU.webp", // r12：同一個景，清晨暗（取代使用者 styleframe intro-1-styleframe.png，檔案保留）
-          "r12/keyframes/intro-2-dawn-bright-R33HVO.webp", // r12：同一個景，天變亮（光從右）
-        ],
-        at: [0, 32],
-        fades: [0, 12],
-        clips: ["r12/clips/intro-1-dark-hold-F9YVSO.mp4", "r12/clips/intro-2-dark-to-bright-AT5CL4.mp4", "r12/clips/intro-3-bright-hold-BKJUOD.mp4"],
-        method: SEA_METHOD,
-        note: "Connect Cut（接上一段）：暗處中的白點規律地擺動，如同海浪。keyframe 是使用者的 styleframe（NAS 04-視覺/02-Output/Preview/Styleframe/03 海，2026-10-19）",
+        keyframes: ["user/keyframes/ocean-01.jpg", "user/keyframes/ocean-02.jpg"], // Ocean_01、Ocean_02
+        at: [0, 26],
+        fades: [0, 6],
+        note: "Connect Cut（接上一段）：暗處中的白點規律地擺動，如同海浪。 2026-10-22 依使用者要求：keyframe 換成使用者提供的 Ocean_01–07（user/keyframes/ocean-0N.jpg，536×300 縮圖）；片段先拿掉，等使用者提供新影片（r12 片段檔案保留）",
       },
       {
         id: "3-A",
         time: "00:52–01:30",
         idea: "海浪思緒翻攪；陰影讓海立體",
-        keyframes: ["r12/keyframes/3-A-1-morning-side-light-E5LLYK.webp"], // r12：上午光從右側照進，浪很立體（取代使用者 styleframe 3-A，檔案保留）
+        keyframes: ["user/keyframes/ocean-02.jpg"], // Ocean_02
         at: [52],
         fades: [6],
-        clips: ["r12/clips/3-A-side-light-hold-DZWJRS.mp4"],
-        method: SEA_METHOD,
+        note: "2026-10-22 依使用者要求：keyframe 換成使用者提供的 Ocean_01–07（user/keyframes/ocean-0N.jpg，536×300 縮圖）；片段先拿掉，等使用者提供新影片（r12 片段檔案保留）",
       },
       {
         id: "3-B",
         time: "01:30–05:00",
         idea: "光線間接影響浪的明暗；海浪激起較大的浪花；海浪反覆翻攪，激起較大的浪花後平靜",
-        keyframes: [
-          "r12/keyframes/3-B-1-routine-VYNTQR.webp", // r12：陰天明暗不均（取代使用者 styleframe 3-B_Routine，檔案保留）
-          "r12/keyframes/3-B-2-vfx01-spray-EEB59B.webp", // r12：浪拍礁石高高噴起（取代使用者 styleframe 3-B_VFX 01）
-          "r12/keyframes/3-B-3-vfx02-surge-EEVKBH.webp", // r12：巨浪浪花遮住礁石（取代使用者 styleframe 3-B_VFX 02）
-        ],
-        at: [90, 160, 230],
-        fades: [6, 6, 6],
-        clips: [
-          "r12/clips/3-B-1-routine-hold-RY9QCK.mp4",
-          "r12/clips/3-B-2-vfx01-spray-hold-MJCWGV.mp4",
-          "r12/clips/3-B-3-vfx02-surge-hold-TU1X2Y.mp4",
-        ],
-        method: SEA_METHOD,
-        note: "EFWZZ0 在 12 秒跳回尾格，預覽只用 0.5–11.5 秒",
+        keyframes: ["user/keyframes/ocean-03.jpg", "user/keyframes/ocean-04.jpg"], // Ocean_03、Ocean_04
+        at: [90, 195],
+        fades: [6, 6],
+        note: "2026-10-22 依使用者要求：keyframe 換成使用者提供的 Ocean_01–07（user/keyframes/ocean-0N.jpg，536×300 縮圖）；片段先拿掉，等使用者提供新影片（r12 片段檔案保留）",
       },
       {
         id: "3-C",
         time: "05:00–07:09",
         idea: "海浪拍打礁岩激起浪花；雲隙光穿透雲層灑落海上",
-        keyframes: [
-          "r12/keyframes/3-C-1-rays-J2C3A7.webp", // r12：光束從左上斜照、較淡（取代使用者 styleframe 3-C_雲隙光，檔案保留）
-          "r12/keyframes/3-C-1-rays-strong-XWKAJD.webp", // r12：光束明顯（使用者：兩張都保留，循序漸進灑下來）
-        ],
-        at: [300, 371],
-        fades: [6, 12],
-        clips: ["r12/clips/3-C-1-rays-soft-hold-K0M4WO.mp4", "r12/clips/3-C-2-rays-grow-KWHNON.mp4", "r12/clips/3-C-3-rays-strong-hold-4R82HD.mp4"],
-        method: SEA_METHOD,
-        note: "第一次生成的 2I0EYO 在 4–11 秒鏡頭推近，不採用；重生 A0N8C3 礁石大小位置穩定",
+        keyframes: ["user/keyframes/ocean-05.jpg", "user/keyframes/ocean-06.jpg"], // Ocean_05、Ocean_06
+        at: [300, 365],
+        fades: [6, 6],
+        note: "2026-10-22 依使用者要求：keyframe 換成使用者提供的 Ocean_01–07（user/keyframes/ocean-0N.jpg，536×300 縮圖）；片段先拿掉，等使用者提供新影片（r12 片段檔案保留）",
       },
       {
         id: "3-D",
         time: "07:09–08:10",
         idea: "海洋不斷堆疊，浪花泡沫，染白畫面",
-        keyframes: [
-          "r12/keyframes/3-D-2-foam-level-379TAB.webp", // r12：白沫樣子照使用者 3-D styleframe、構圖與浪線照 VYNTQR（浪線接近水平，浪才會朝鏡頭走；使用者 3-D styleframe 保留未刪）
-        ],
+        keyframes: ["user/keyframes/ocean-07.jpg"], // Ocean_07
         at: [429],
         fades: [6],
-        clips: ["r12/clips/3-D-2-foam-level-hold-AXTGWQ.mp4"],
-        method: SEA_METHOD,
-        note: "8ABV06 與重生的 49W47E 都在 2 秒後鏡頭推近（礁石變大約兩倍），預算用完沒再重生；預覽只用 49W47E 推近後較穩的 4–11.5 秒，和 3-C 之間的 6 秒 cross fade 會看到畫面放大",
+        note: "2026-10-22 依使用者要求：keyframe 換成使用者提供的 Ocean_01–07（user/keyframes/ocean-0N.jpg，536×300 縮圖）；片段先拿掉，等使用者提供新影片（r12 片段檔案保留）",
       },
     ],
   },
