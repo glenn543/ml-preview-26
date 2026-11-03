@@ -170,6 +170,9 @@ float softE(){
 }
 void main(){
   vec4 H = texture(uH, vUv);
+  // contain：不同來源比例完整放進16:9畫布，素材以外保留黑邊。
+  vec2 bounds = toImg(vUv);
+  if (any(lessThan(bounds, vec2(0.0))) || any(greaterThan(bounds, vec2(1.0)))) { o = vec4(0.0, 0.0, 0.0, 1.0); return; }
   vec4 hx1 = texture(uH, vUv + vec2(uTexelH.x, 0)), hx0 = texture(uH, vUv - vec2(uTexelH.x, 0));
   vec4 hy1 = texture(uH, vUv + vec2(0, uTexelH.y)), hy0 = texture(uH, vUv - vec2(0, uTexelH.y));
   vec2 grad  = vec2((hx1.r - hx0.r)/(2.0*uTexelH.x*uAspect), (hy1.r - hy0.r)/(2.0*uTexelH.y)); // 每單位（高=1）
@@ -264,6 +267,7 @@ void main(){
   // ---------- textures ----------
   var img = { tex: null, w: 1, h: 1 }, mask = { tex: null };
   var sourceVideo = null, activeVideo = scene.video;
+  var videoSpeed = scene.videoRate > 0 ? scene.videoRate : 1;
   function switchVideo(src) {
     if (!sourceVideo || src === activeVideo) return;
     sourceVideo.pause();
@@ -283,7 +287,7 @@ void main(){
       img.tex = imageTexture(sourceVideo);
       img.w = sourceVideo.videoWidth; img.h = sourceVideo.videoHeight;
       fbPrimed = false; backgroundPrimed = false; backgroundTime = null;
-      var at = ((api && api.time) || 0) % sourceVideo.duration;
+      var at = (((api && api.time) || 0) * videoSpeed) % sourceVideo.duration;
       if (Number.isFinite(at) && at > 0.02) sourceVideo.currentTime = at;
     });
     sourceVideo.addEventListener('error', function () { fail('影片載入失敗：' + activeVideo); });
@@ -526,12 +530,12 @@ void main(){
     }
     if (waitShown) { waitShown = null; notice(null); }
     if (sourceVideo && sourceVideo.readyState >= 2) {
-      var videoTime = (api.time || 0) % sourceVideo.duration;
+      var videoTime = ((api.time || 0) * videoSpeed) % sourceVideo.duration;
       // 循環邊界兩側只差一格，不能把它當成相差整支影片再 seek。
       var drift = Math.abs(sourceVideo.currentTime - videoTime);
       drift = Math.min(drift, sourceVideo.duration - drift);
       if (!sourceVideo.seeking && Number.isFinite(videoTime) && drift > (api.playing ? 0.25 : 0.02)) sourceVideo.currentTime = videoTime;
-      sourceVideo.playbackRate = api.rate || 1;
+      sourceVideo.playbackRate = Math.min(16, Math.max(0.0625, (api.rate || 1) * videoSpeed));
       if (api.playing && sourceVideo.paused) sourceVideo.play().catch(function () {});
       if (!api.playing && !sourceVideo.paused) sourceVideo.pause();
       gl.bindTexture(gl.TEXTURE_2D, img.tex);
@@ -595,7 +599,7 @@ void main(){
     tex(c, 'uH', T.h.tex, 2); tex(c, 'uPrev', T.fA.tex, 3); tex(c, 'uE', T.gA.tex, 4);
     gl.uniform1i(loc(c, 'uHasMask'), mask.tex ? 1 : 0);
     var ia = img.w / img.h;
-    if (aspect > ia) u2(c, 'uImgScale', 1, ia / aspect); else u2(c, 'uImgScale', aspect / ia, 1);
+    if (aspect > ia) u2(c, 'uImgScale', aspect / ia, 1); else u2(c, 'uImgScale', 1, ia / aspect);
     u2(c, 'uTexelH', 1 / T.h.w, 1 / T.h.h);
     u2(c, 'uWindDir', windDir[0], windDir[1]); u2(c, 'uLight', light[0], light[1]);
     gl.uniform3fv(loc(c, 'uGlintColor'), scene.glintColor || [1, 0.9, 0.7]);

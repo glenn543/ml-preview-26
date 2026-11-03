@@ -3,8 +3,13 @@ window.WIND_SCENES = [
     "id": "lotus",
     "title": "荷花倒影",
     "type": "reflection",
-    "video": "assets/loop.mp4?v=c9469c5662e6",
+    "videoRate": 2,
+    "video": "assets/tail-slowmotion.mp4?v=c962f1884214",
     "videos": [
+      {
+        "label": "Tail SlowMotion",
+        "src": "assets/tail-slowmotion.mp4?v=c962f1884214"
+      },
       {
         "label": "Loop",
         "src": "assets/loop.mp4?v=c9469c5662e6"
